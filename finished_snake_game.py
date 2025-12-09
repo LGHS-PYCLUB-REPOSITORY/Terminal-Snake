@@ -10,7 +10,6 @@ apple = [9,6]
 size = 0
 LINES = 25
 highscore = -1
-
 RED = "\033[91m"
 GREEN = "\033[92m"
 LIME = "\033[32m"
@@ -20,7 +19,6 @@ PURPLE = "\033[95m"
 CYAN = "\033[96m"
 WHITE = "\033[0m"
 block = ["[]","██"]
-# ▚▚▚▚▚▚
 style = 1
 torus = False
 no_intersections = True
@@ -36,8 +34,8 @@ def new_apple(X,Y):
             apple = [x,y]
             return
     logging.warning(RED+"Could not place apple")
-# █
-## for top and bottom
+
+
 def level(top):
     print(WHITE,end="")
     if style > -1: print(block[style],end="")
@@ -107,68 +105,7 @@ def reset():
     apple = [5,5]
     size = 0
     velocity = [1,0]
-    #game_loop()
 
-
-def old_settings():
-    while True:
-        for _ in range(LINES):
-            print()
-        div = WHITE+" | "+WHITE
-        global style
-        global torus
-        print(GREEN)
-        print("                 << SNAKE GAME >>                       ")
-        #print(GREEN+"SNAKE GAME"+" - "+"AARUSH KALELE")
-        print(CYAN)
-        print("               << BY AARUSH KALELE >>                   ")
-        print(PURPLE)
-        print("                - WITH PYTHON 3.17 -                    ")
-        print(BLUE)
-        print("                     [STYLE]                            ")
-        print()
-        #print("             | BASIC | BOX | BLOCK |                    ")
-        print("            ",
-            div,GREEN if style == -1 else RED,"BASIC",
-            div,GREEN if style == 0 else RED,"BOX",
-            div,GREEN if style == 1 else RED,"BLOCK",
-            div,sep="")
-        print(BLUE)
-        print("                     [WORLD]                            ")
-        print()
-        #print("              | BOUNDED | INFINITE |                    ")
-        print("             ",
-            div,GREEN if torus == False else RED,"BOUNDED",
-            div,GREEN if torus == True else RED,"INFINITE",
-            div,sep="")
-        print(BLUE)
-        print("                    [GO BACK]                           ")
-        print()
-        #print("                      | S |                             ")
-        print("                     "+div+GREEN+"S"+div+"                            ")
-        print()
-        #print(BLUE+"[SAVE] ",div,"S",div,sep="")
-        #print()
-        #print(BLUE+"[EXIT] ",div,"E",div,sep="")
-        #print()
-        #exit()
-        option = input()
-        option = option.upper()
-        match option:
-            case "BASIC":
-                style = -1
-            case "BOX":
-                style = 0
-            case "BLOCK":
-                style = 1
-            case "BOUNDED":
-                torus = False
-            case "INFINITE":
-                torus = True
-            case "S":
-                reset()
-                return
-        time.sleep(0)
 
 def settings():
     while True:
@@ -324,4 +261,5 @@ print("Enter E to access the game menu\n")
 print(CYAN+"Good luck, and try to get the highest score!\n")
 print(WHITE+"Press any key to continue\n")
 input()
+
 game_loop()
